@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer,useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
 import reducer from './context/auth/reducer';
@@ -7,13 +7,11 @@ import { AuthContextProvider } from './context/auth/context';
 import route from './route';
 
 function App() {
-
   const [userState,userDispatch] = useReducer(reducer,iniUserState)
   const authContextValues = {
       userState,
       userDispatch
-    } 
-
+  }
 
   return (
     <AuthContextProvider value = { authContextValues }>
